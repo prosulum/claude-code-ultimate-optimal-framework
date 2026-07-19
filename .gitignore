@@ -1,0 +1,8 @@
+node_modules/
+npm-debug.log*
+*.tgz
+.DS_Store
+coverage/
+.env
+.env.*
+_out_test/
