@@ -4,8 +4,8 @@
   "description": "Scaffold a Claude Code workspace with routing, memory, and a self-updating architecture — in one command. Works on macOS, Linux, and Windows.",
   "type": "module",
   "bin": {
-    "claude-code-ultimate-optimal-framework": "./bin/claude-code-ultimate-optimal-framework.js",
-    "ccuof": "./bin/claude-code-ultimate-optimal-framework.js"
+    "claude-code-ultimate-optimal-framework": "bin/claude-code-ultimate-optimal-framework.js",
+    "ccuof": "bin/claude-code-ultimate-optimal-framework.js"
   },
   "files": [
     "bin",
