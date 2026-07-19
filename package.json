@@ -1,6 +1,6 @@
 {
   "name": "claude-code-ultimate-optimal-framework",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Scaffold a Claude Code workspace with routing, memory, and a self-updating architecture — in one command. Works on macOS, Linux, and Windows.",
   "type": "module",
   "bin": {

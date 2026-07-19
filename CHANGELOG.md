@@ -3,6 +3,16 @@
 All notable changes to this project are documented here. This project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1] — 2026-07-19
+
+### Fixed
+- **Docs**: `npx ccuof` was documented but cannot work — `npx` resolves package
+  names, and `ccuof` is a bin alias, not a package. README and `--help` now show
+  `npx claude-code-ultimate-optimal-framework` for npx use, with `ccuof` available
+  after `npm install -g`. Troubleshooting rows added for both failure modes.
+- **package.json**: `bin` paths lost their `./` prefix (npm 11's strict publish
+  validation was silently removing the entries otherwise).
+
 ## [1.1.0] — 2026-07-18
 
 Backward-compatible release. Existing usage (`npx claude-code-ultimate-optimal-framework`)

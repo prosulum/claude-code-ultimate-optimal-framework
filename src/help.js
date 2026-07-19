@@ -16,7 +16,7 @@ export const HELP = `
 
   USAGE
     npx claude-code-ultimate-optimal-framework [command] [options]
-    npx ccuof [command] [options]
+    ccuof [command] [options]      (after: npm install -g claude-code-ultimate-optimal-framework)
 
   COMMANDS
     init                 Create a workspace (default; runs the interactive setup)
@@ -34,17 +34,17 @@ export const HELP = `
 
   EXAMPLES
     # Interactive setup in the current directory
-    npx ccuof
+    ccuof
 
     # Interactive setup into a specific folder
-    npx ccuof --output ./my-workspace
+    ccuof --output ./my-workspace
 
     # Preview without writing
-    npx ccuof --dry-run --output ./my-workspace
+    ccuof --dry-run --output ./my-workspace
 
     # Non-interactive (CI / scripting)
-    npx ccuof --example-config > workspace.json   # then edit it
-    npx ccuof --config workspace.json --output ./my-workspace
+    ccuof --example-config > workspace.json   # then edit it
+    ccuof --config workspace.json --output ./my-workspace
 
   Docs: https://github.com/prosulum/claude-code-ultimate-optimal-framework
 `;

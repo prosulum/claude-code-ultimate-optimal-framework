@@ -9,10 +9,19 @@ Scaffold a Claude Code workspace with routing, memory, and a self-updating file 
 [![platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-4c9)](#windows)
 
 ```bash
-npx ccuof
+npx claude-code-ultimate-optimal-framework
 ```
 
 That is the whole install step. No global package, no config file to hand-write.
+
+Prefer a shorter command? Install once globally and you get the `ccuof` alias:
+
+```bash
+npm install -g claude-code-ultimate-optimal-framework
+ccuof --help
+```
+
+The examples below use the short `ccuof` form. If you stick with `npx`, substitute the full package name — `npx` needs the package name, not the alias.
 
 ---
 
@@ -29,14 +38,15 @@ The fix is structure: a small set of files that tell Claude exactly what to read
 Run it with `npx` (nothing to install first):
 
 ```bash
-npx ccuof                      # interactive setup in the current folder
-npx ccuof --output ./my-team   # ...or into a specific folder
+npx claude-code-ultimate-optimal-framework                      # interactive setup, current folder
+npx claude-code-ultimate-optimal-framework --output ./my-team   # ...or into a specific folder
 ```
 
-The full package name works too, if you prefer it:
+Or with the global install:
 
 ```bash
-npx claude-code-ultimate-optimal-framework
+ccuof                      # interactive setup in the current folder
+ccuof --output ./my-team   # ...or into a specific folder
 ```
 
 The setup asks for:
@@ -106,7 +116,7 @@ Say `"New project: [describe it]"` and Claude infers the type (business initiati
 ## CLI reference
 
 ```text
-npx ccuof [command] [options]
+ccuof [command] [options]
 ```
 
 | Option | Short | What it does |
@@ -123,7 +133,7 @@ npx ccuof [command] [options]
 Preview before you write:
 
 ```bash
-npx ccuof --dry-run --output ./my-team
+ccuof --dry-run --output ./my-team
 ```
 
 If the target folder already contains workspace files (`CLAUDE.md`, `CONTEXT.md`, or `PROJECT-REGISTRY.md`), the tool asks before overwriting (interactive) or stops and tells you to pass `--force` (with `--config` or without a terminal). Your edited files are safe by default.
@@ -135,9 +145,9 @@ If the target folder already contains workspace files (`CLAUDE.md`, `CONTEXT.md`
 Generate a config, edit it, then build with no prompts. This is the path for scripts, CI jobs, and any terminal without interactive input.
 
 ```bash
-npx ccuof --example-config > workspace.json
+ccuof --example-config > workspace.json
 # edit workspace.json
-npx ccuof --config workspace.json --output ./my-team
+ccuof --config workspace.json --output ./my-team
 ```
 
 `workspace.json` looks like this:
@@ -172,24 +182,24 @@ With `--config`, the CLI never prompts, even in a terminal. If the target folder
 
 ## Windows
 
-The tool runs on Windows through `npx`, the same as on macOS and Linux.
+The tool runs on Windows the same as on macOS and Linux — via `npx claude-code-ultimate-optimal-framework`, or as `ccuof` after `npm install -g`.
 
 **PowerShell or Command Prompt:**
 
 ```powershell
-npx ccuof --output .\my-team
+ccuof --output .\my-team
 ```
 
 **Windows paths** work as arguments:
 
 ```powershell
-npx ccuof --output C:\Users\you\claude-workspaces\acme
+ccuof --output C:\Users\you\claude-workspaces\acme
 ```
 
 A few Windows notes:
 
 - **Windows Terminal** (or the VS Code terminal) gives you the nicest output. On the older `cmd.exe` console, decorative check marks and arrows fall back to plain characters automatically, so you will never see garbled symbols.
-- If `npx` reports that it cannot find the command, update Node so `npx` is on your `PATH`, or run `npm exec ccuof`.
+- With `npx`, always use the full package name (`npx claude-code-ultimate-optimal-framework`) — `npx ccuof` will not resolve, because `npx` looks up package names and `ccuof` is the installed command's alias, not a package.
 - Line endings in the generated files are LF, which Git and every editor on Windows handle fine.
 
 ---
@@ -205,7 +215,8 @@ A few Windows notes:
 
 | Symptom | Fix |
 |---------|-----|
-| `command not found` after `npx ccuof` | Update Node (`npx` ships with npm 7+), or run `npm exec ccuof`. |
+| `npx ccuof` fails with `404 Not Found` | `npx` needs the package name: `npx claude-code-ultimate-optimal-framework`. The short `ccuof` command comes from `npm install -g`. |
+| `ccuof: command not found` | Install it globally first: `npm install -g claude-code-ultimate-optimal-framework`. |
 | It refuses to run and mentions `--force` | A workspace already exists in that folder. Pass `--force` to overwrite, or pick a new `--output` folder. |
 | It exits saying interactive setup needs a terminal | You are in a non-interactive shell. Use `--config` (see [Non-interactive use](#non-interactive--ci-use)). |
 | Symbols look odd in an old console | Switch to Windows Terminal, or ignore it: the fallback characters are still readable. |
